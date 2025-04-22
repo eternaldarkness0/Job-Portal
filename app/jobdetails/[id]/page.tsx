@@ -6,8 +6,11 @@ import { getServerSession } from 'next-auth';
 import Link from 'next/link';
 import React from 'react'
 
+type Params = {
+    id: string;
+};
 
-const JobDetails = async ({ params }: any) => {
+const JobDetails = async ({ params }: { params: Params }) => {
     const jobId = params.id;
     const singleJob = JobData.find((job) => job.id.toString() === jobId);
     const session = await getServerSession(authOptions);
