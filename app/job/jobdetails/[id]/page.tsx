@@ -6,13 +6,14 @@ import { getServerSession } from 'next-auth';
 import Link from 'next/link';
 import React from 'react'
 
-interface JobDetailsProps {
+interface PageProps {
     params: {
         id: string;
     };
 }
 
-const JobDetails = async ( {params}: JobDetailsProps ) => {
+const JobDetails = async ({ params }: PageProps ) => {
+    const { id } = params;
 
     const singleJob = JobData.find((job) => job.id.toString() == params.id);
     const session = await getServerSession(authOptions);
@@ -20,7 +21,7 @@ const JobDetails = async ( {params}: JobDetailsProps ) => {
     const firstFourJob = JobData.slice(0, 4);
 
 
-  return (
+return (
     <div className='mt-20 mb-12'>
         <div className='block sm:flex items-center justify-between w-[80%] mx-auto'>
             <div className='flex-[0.7]'>
@@ -70,7 +71,7 @@ const JobDetails = async ( {params}: JobDetailsProps ) => {
 
         </div>
     </div>
-  ) 
+) 
 }
 
 export default JobDetails
