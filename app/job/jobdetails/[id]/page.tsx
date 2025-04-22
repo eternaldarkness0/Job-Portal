@@ -6,13 +6,8 @@ import { getServerSession } from 'next-auth';
 import Link from 'next/link';
 import React from 'react'
 
-interface PageProps {
-    params: {
-        id: string;
-    };
-}
 
-const JobDetails = async ({ params }: PageProps ) => {
+const JobDetails = async ({ params }: { params: { id: string } }) => {
 
     const singleJob = JobData.find((job) => job.id.toString() == params.id);
     const session = await getServerSession(authOptions);
@@ -61,7 +56,7 @@ return (
         <div className='mt-4'>
             {firstFourJob.map((job) => {
                 return (
-                    <Link href={`${job.id}`} key={job.id} className='space-y-8'>
+                    <Link href={`/job/jobdetails/${job.id}`} key={job.id} className='space-y-8'>
                         <FeaturesCard job={job}/>
                     </Link>
                 )
