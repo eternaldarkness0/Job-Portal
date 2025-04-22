@@ -13,7 +13,6 @@ interface PageProps {
 }
 
 const JobDetails = async ({ params }: PageProps ) => {
-    const { id } = params;
 
     const singleJob = JobData.find((job) => job.id.toString() == params.id);
     const session = await getServerSession(authOptions);
