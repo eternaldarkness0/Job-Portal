@@ -8,9 +8,9 @@ import React from 'react'
 
 
 const JobDetails = async ({ params }: { params: { id: string } }) => {
-
     const singleJob = JobData.find((job) => job.id.toString() == params.id);
     const session = await getServerSession(authOptions);
+
 
     const firstFourJob = JobData.slice(0, 4);
 
@@ -56,7 +56,7 @@ return (
         <div className='mt-4'>
             {firstFourJob.map((job) => {
                 return (
-                    <Link href={`/job/jobdetails/${job.id}`} key={job.id} className='space-y-8'>
+                    <Link href={`/jobdetails/${job.id}`} key={job.id} className='space-y-8'>
                         <FeaturesCard job={job}/>
                     </Link>
                 )

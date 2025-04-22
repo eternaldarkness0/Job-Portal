@@ -48,7 +48,7 @@ const FeaturesCard = ({ job }: Props) => {
         </div>
         
         <div className='absolute top-[1rem] right-[1rem]'>
-            <FaRegBookmark  className='w-[1rem] h-[1rem]'/>
+            <FaRegBookmark className='w-[1rem] h-[1rem]'/>
         </div> 
 
     </div>
