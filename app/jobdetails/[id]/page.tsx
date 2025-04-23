@@ -7,11 +7,10 @@ import Link from 'next/link';
 import React from 'react'
 
 
-const JobDetails = async ({ params }: { params: { id: string } }) => {
-    const singleJob = JobData.find((job) => job.id.toString() == params.id);
+const JobDetails = async ({ params }: { params: Promise<{ id: string }> }) => {
+    const { id } = await params;
+    const singleJob = JobData.find((job) => job.id.toString() === id);
     const session = await getServerSession(authOptions);
-
-
     const firstFourJob = JobData.slice(0, 4);
 
 
